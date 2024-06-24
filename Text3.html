@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh Giá Sản Phẩm</title>
+</head>
+<body>
+    <div class="conteiner">
+        <table>
+            <tr>
+                <h1>Đánh Giá</h1>
+            
+            </tr>
+            <tr>
+                <td> <input type="text" id="user" placeholder="Nhập Tên Người Đánh Giá"></td>
+
+            </tr>
+            <tr>
+                <td>
+                    <textarea name="" id="cmt" cols="30" rows="10" placeholder="Nhập Đánh Giá"></textarea>
+                </td>
+            </tr>
+            <tr><td><button id="btn">Gửi Đánh Giá</button></td></tr>
+        </table>
+        <div class="list_cmt">
+
+        </div>
+    </div>
+    <script>
+    $(document).ready(function(){
+            $("#btn").click(function(){
+                // Lấy giá trị từ các trường nhập
+                let name = $("#user").val();
+                let cmt = $("#cmt").val();
+                let time = new Date();
+                let timeSet = time.toLocaleString();
+
+                // Tạo một đối tượng đánh giá
+                let nguoidanhgia = {
+                    name: name,
+                    cmt: cmt,
+                    timeSet: timeSet
+                };
+
+                // Hiển thị đánh giá trên trang
+                let list = $(".list_cmt");
+                let div_new = $("<div>").addClass("div_new");
+                let info_new = $("<p>").html(nguoidanhgia.name + " - " + nguoidanhgia.timeSet);
+                let cmt_new = $("<p>").text(nguoidanhgia.cmt);
+
+                list.append(info_new);
+                list.append(cmt_new);
+                list.append(div_new);
+            });
+        });
+    </script>
+</body>
+</html>

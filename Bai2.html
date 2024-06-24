@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        #clock_body{
+            width: 500px;
+            background-color: black;
+            color: aqua;
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock_body">
+        
+    </div>
+    <script>
+        // $(document).ready(function(){
+        //     var time = new Date();
+        //     var h = time.getHours();
+        //     var p = time.getMinutes();
+        //     var s = time.getSeconds();
+        //     $("#clock_body").html(h +":"+ p+":"+ s);
+            
+        // });
+        function dongho(){
+            let time = new Date();
+            let h = time.getHours();
+            let p = time.getMinutes();
+            let s = time.getSeconds();
+            let sun = "";
+            if(h < 10){
+                h = "0" + h;
+            }if(p < 10){
+                p = "0" + p;
+            }if(s < 10){
+                s = "0" + s;
+            }
+
+            if(h > 12){
+                sun = "PM"
+            }else if(h < 12){
+                sun = "AM"
+            }
+            document.getElementById("clock_body").innerHTML = h + ":" + p +":"+s +" "+ sun;
+            setTimeout("dongho()",1000);
+        }
+        dongho();
+    </script>
+</body>
+</html>

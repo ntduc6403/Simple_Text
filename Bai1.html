@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/assets/fonts/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Login_Form</title>
+    <style>
+        .container{
+            position: absolute;
+            
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-image: linear-gradient(pink,rgb(115, 224, 228));
+            width: 800px;
+            height: 500px;
+        }
+        
+        table{
+            background-image: linear-gradient(to bottom right,rgb(93, 226, 168), pink);
+            box-sizing: border-box;
+            position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 80%;
+        }
+        
+        .tit_text{
+            position: relative;
+            bottom: 40px;
+            color: gray;
+        }
+       
+        input{
+            padding: 6px 30px;
+            margin-left: 60px;
+            
+            
+        }
+        #btn_log_in{
+            padding: 6px 92px;
+            margin-left: 80px;
+            position: relative;
+            bottom: 70px;
+            
+        }
+        .icon_input{
+           position: relative;
+           left: 90px;
+        }
+        #eyes{
+           position: relative;
+           left: 270px;
+           bottom: 30px;
+           padding: 3px 8px;
+           background-color: white;
+           border: none;
+        }
+        #eyes:hover{
+            color: pink;
+        }
+        .row_input_1{
+            position: relative;
+            bottom: 40px;
+        }
+        .row_input_2{
+            position: relative;
+            bottom: 48px;
+        }
+        #btn_forgot{
+            background-color: transparent;
+            border: none;
+            position: relative;
+            bottom: 50px;
+            left: 90px;
+        }
+        #btn_forgot:hover{
+            background-color: cadetblue;
+        }
+        #btn_sign_up{
+            background-color: cadetblue;
+
+            box-sizing: border-box;
+            padding: 5px 20px;
+            position: relative;
+            bottom: 50px;
+            right: 90px;
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <table>
+            <tr><td colspan="2" style="text-align: center;"><h1>Log In</h1> <br><span class="tit_text">Login Here using your name and password</span></td></tr>
+            <tr><td colspan="2" style="text-align: center;"></td></tr>
+            
+            
+            <tr>
+                <td class="row_input_1">
+                    <span class="icon_input"> <i class="fa-solid fa-user" ></i></span>
+                   
+                    <input type="text" id="user" placeholder="Username">
+                </td>
+            </tr>
+            <tr class="row_input_2">
+                <td>
+                    <span class="icon_input"><i class="fa-solid fa-key" class="icon_input"></i></span>
+                    
+                    <input type="password" id="pass" placeholder="PassWord">
+                    <button id="eyes"><i class="fa-solid fa-eye"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <button id="btn_log_in">Log In</button>
+                </td>
+                
+            </tr>
+            <tr >
+                <td><button id="btn_forgot">ForGot <br> PassWord</button></td>
+                <td><button id="btn_sign_up">Sign Up<i class="fa-solid fa-address-book"></i></button></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#eyes").click(function(){
+                if($("#pass").attr('type') == 'password' ){
+                    $("#pass").attr('type','text');
+                }else if($("#pass").attr('type') == 'text'){
+                    $("#pass").attr('type','password');
+
+                }
+            });
+            $("#btn_log_in").click(function(){
+               let user = $("#user").val();
+               if(user == ""){
+                alert("Moi Ban Nhap tai Khoan");
+               }else{
+                alert("Bạn " + user +" Đã Đăng Nhập Thành Công");
+                
+               }
+            });
+        });
+
+    </script>
+</body>
+</html>

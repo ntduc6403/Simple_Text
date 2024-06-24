@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    
+</head>
+<style>
+    #clock{
+        width: 500px;
+        color: cyan;
+        font-size: 5rem;
+        background-color: black;
+    }
+</style>
+<body>
+    <div id="clock">
+
+    </div>
+</body>
+<script>
+    function dongho(){
+        let time = new Date();
+        let h = time.getHours();
+        let p = time.getMinutes();
+        let s = time.getSeconds();
+        let ap = "";
+        if(h < 10){
+            h = "0" + h;
+        }if(p < 10){
+            p = "0" + p;
+        }if(s < 10){
+            s = "0" + s;
+        }if(h > 12 ){
+            ap = "PM";
+        }if(h < 12 ){
+            ap = "AM";
+        }
+        document.getElementById("clock").innerHTML = (h +":" + p + ":" + s +" "+ ap);
+        setTimeout("dongho()",1000);
+    }
+    dongho();
+</script>
+</html>

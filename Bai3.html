@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review</title>
+</head>
+<body>
+    <h1 style="color: blue;">Đánh giá</h1>
+
+    <form id="reviewForm">
+        <label for="fullName">Họ tên người dùng:</label>
+        <input type="text" id="fullName" required>
+
+        <label for="reviewContent">Nội dung góp ý:</label>
+        <textarea id="reviewContent" rows="4" required></textarea>
+
+        <button type="button" onclick="submitReview()">Gửi đánh giá</button>
+    </form>
+
+    <div id="reviewList">
+        <!-- Danh sách đánh giá sẽ được hiển thị ở đây -->
+    </div>
+
+    <script>
+    function submitReview() {
+        // Lấy thông tin từ người dùng
+        var fullName = document.getElementById("fullName").value;
+        var reviewContent = document.getElementById("reviewContent").value;
+        var currentDate = new Date();
+        var formattedDate = currentDate.toLocaleString(); // Chuyển đổi ngày thành định dạng dễ đọc
+    
+        // Tạo một đánh giá mới
+        var review = {
+            fullName: fullName,
+            content: reviewContent,
+            date: formattedDate
+        };
+    
+        // Hiển thị đánh giá trên trang
+        displayReview(review);
+    
+       
+    }
+    
+    function displayReview(review) {
+        // Hiển thị đánh giá trên trang
+        var reviewList = document.getElementById("reviewList");
+    
+        var reviewElement = document.createElement("div");
+        reviewElement.classList.add("review");
+    
+        var reviewInfo = document.createElement("p");
+        reviewInfo.innerHTML = "<strong>" + review.fullName + "</strong> - " + review.date;
+        
+        var reviewContent = document.createElement("p");
+        reviewContent.textContent = review.content;
+    
+        reviewElement.appendChild(reviewInfo);
+        reviewElement.appendChild(reviewContent);
+    
+        reviewList.appendChild(reviewElement);
+    }
+    
+    </script>
+</body>
+</html>
